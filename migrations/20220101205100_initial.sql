@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS users
+(
+    "id" BIGINT PRIMARY KEY NOT NULL,
+    "champion" VARCHAR(32) NOT NULL,
+    "rate" INTEGER NOT NULL
+);

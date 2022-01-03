@@ -1,0 +1,74 @@
+[package]
+name = "lol-quotes"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+dashmap = "5.0"
+futures-util = { version = "0.3", default-features = false }
+hyper = { version = "0.14", default-features = false, features = [
+    "client",
+    "http1",
+    "http2",
+    "tcp"
+] }
+hyper-rustls = { version = "0.23", default-features = false, features = [
+    "http1",
+    "http2",
+    "webpki-tokio"
+] }
+lazy_static = "1.4"
+rand = { version = "0.8", default-features = false, features = ["std", "std_rng"] }
+regex = "1"
+serde = { version = "1", default-features = false, features = ["derive"] }
+serde_json = "1"
+simd-json = { version = "0.4", default-features = false, features = [
+    "serde_impl"
+] }
+sqlx = { version = "0.5", default-features = false, features = [
+    "runtime-tokio-rustls",
+    "sqlite",
+    "macros",
+    "migrate"
+] }
+tokio = { version = "1", default-features = false, features = [
+    "fs",
+    "macros",
+    "rt-multi-thread"
+] }
+tracing = { version = "0.1", default-features = false, features = ["log"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = [
+    "ansi",
+    "env-filter",
+    "fmt",
+    "parking_lot",
+    "std"
+] }
+twilight-gateway = { version = "0.8", default-features = false, features = [
+    "zlib-simd",
+    "simd-json",
+    "rustls-webpki-roots",
+    "tracing"
+] }
+twilight-http = { version = "0.8", default-features = false, features = [
+    "rustls-webpki-roots",
+    "simd-json"
+] }
+twilight-interactions = { version = "0.8", default-features = false, features = [
+    "derive"
+] }
+twilight-model = { version = "0.8", default-features = false, features = [
+    "tracing"
+] }
+twilight-util = { version = "0.8", default-features = false, features = [
+    "builder"
+] }
+
+[profile.release]
+codegen-units = 1
+debug = false
+incremental = false
+lto = true
+opt-level = 3
+panic = "abort"
